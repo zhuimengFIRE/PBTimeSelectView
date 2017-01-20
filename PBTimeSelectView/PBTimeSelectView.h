@@ -10,8 +10,19 @@
 
 @interface PBTimeSelectView : UIView
 
+/**
+ 选择时间后回调
+ */
 @property (nonatomic,copy) void (^selectTimeStringBlock)(NSString *selectTime);
+
+/**
+ 开始时间 如09:00
+ */
 @property (nonatomic,strong) NSString   *startTime;
+
+/**
+ 结束时间 如18:30
+ */
 @property (nonatomic,strong) NSString   *endTime;
 
 @end

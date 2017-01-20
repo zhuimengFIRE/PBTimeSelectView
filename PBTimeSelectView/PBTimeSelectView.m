@@ -26,19 +26,18 @@
 @implementation PBTimeSelectView
 
 - (void)drawRect:(CGRect)rect {
-    [self setup];
+    [self configure];
 }
 
-- (void)setup {
-    [self setupData];
-    [self setupView];
+- (void)configure {
+    [self configureView];
+    [self configureData];
 }
 
-- (void)setupData {
-    
+- (void)configureData {
     self.firstArray = [[NSMutableArray alloc] init];
     self.secondArray = [[NSMutableArray alloc] init];
-
+    
     for (NSInteger i = 0; i < 60; i ++) {
         if (i < 10) {
             [self.firstArray addObject:[NSString stringWithFormat:@"0%ld",i]];
@@ -55,10 +54,9 @@
     self.startRightNumber = [[self.startTime componentsSeparatedByString:@":"][1] integerValue];
     self.endLeftNumber = [[self.endTime componentsSeparatedByString:@":"][0] integerValue];
     self.endRightNumber = [[self.endTime componentsSeparatedByString:@":"][1] integerValue];
-    
 }
 
-- (void)setupView {
+- (void)configureView {
     self.frame = CGRectMake(100, 100, 200, 233);
     self.backgroundColor =[UIColor whiteColor];
     self.layer.cornerRadius = 5;
@@ -103,7 +101,6 @@
     
     [self.pickerView selectRow:self.startLeftNumber inComponent:0 animated:YES];
     [self.pickerView selectRow:self.startRightNumber inComponent:1 animated:YES];
-    
     
 }
 
